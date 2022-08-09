@@ -1,16 +1,25 @@
-mysql> create table Address_Book( First_Name  varchar(30) not null, Last_Name varchar(30) not null,Address varchar(30) not null,City varchar(30) not null,zip int not null,Phone_number int not null,Email varchar(30) not null);
-Query OK, 0 rows affected (0.57 sec)
 
-mysql> desc Address_Book;
-+--------------+-------------+------+-----+---------+-------+
-| Field        | Type        | Null | Key | Default | Extra |
-+--------------+-------------+------+-----+---------+-------+
-| First_Name   | varchar(30) | NO   |     | NULL    |       |
-| Last_Name    | varchar(30) | NO   |     | NULL    |       |
-| Address      | varchar(30) | NO   |     | NULL    |       |
-| City         | varchar(30) | NO   |     | NULL    |       |
-| zip          | int         | NO   |     | NULL    |       |
-| Phone_number | int         | NO   |     | NULL    |       |
-| Email        | varchar(30) | NO   |     | NULL    |       |
-+--------------+-------------+------+-----+---------+-------+
-7 rows in set (0.04 sec)
+mysql> insert into Address_Book Values('Darshan','Mhatre','AT-Lokmanya Society','Alibaug',401232,7276985,'darsh@gmil.com');
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into Address_Book Values('Yukta','Bapardekar','AT-Sagar Society','panvel',401232,72775785,'yukta@gmil.com');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Address_Book Values('joy','Funny','AT-cherry Society','UK',501232,726564785,'joy@gmil.com');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into Address_Book Values('Han','Cunny','AT-Apple Society','USA',671232,5446564785,'han@gmil.com');
+ERROR 1264 (22003): Out of range value for column 'Phone_number' at row 1
+mysql> insert into Address_Book Values('Han','Cunny','AT-Apple Society','USA',671232,544656478,'han@gmil.com');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from Address_Book;
++------------+------------+---------------------+---------+--------+--------------+----------------+
+| First_Name | Last_Name  | Address             | City    | zip    | Phone_number | Email          |
++------------+------------+---------------------+---------+--------+--------------+----------------+
+| Darshan    | Mhatre     | AT-Lokmanya Society | Alibaug | 401232 |      7276985 | darsh@gmil.com |
+| Yukta      | Bapardekar | AT-Sagar Society    | panvel  | 401232 |     72775785 | yukta@gmil.com |
+| joy        | Funny      | AT-cherry Society   | UK      | 501232 |    726564785 | joy@gmil.com   |
+| Han        | Cunny      | AT-Apple Society    | USA     | 671232 |    544656478 | han@gmil.com   |
++------------+------------+---------------------+---------+--------+--------------+----------------+
+4 rows in set (0.00 sec)
