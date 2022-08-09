@@ -1,33 +1,16 @@
-C:\Program Files\MySQL\MySQL Server 8.0\bin>MySql -u root -p
-Enter password: **********
-Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 71
-Server version: 8.0.30 MySQL Community Server - GPL
+mysql> create table Address_Book( First_Name  varchar(30) not null, Last_Name varchar(30) not null,Address varchar(30) not null,City varchar(30) not null,zip int not null,Phone_number int not null,Email varchar(30) not null);
+Query OK, 0 rows affected (0.57 sec)
 
-Copyright (c) 2000, 2022, Oracle and/or its affiliates.
-
-Oracle is a registered trademark of Oracle Corporation and/or its
-affiliates. Other names may be trademarks of their respective
-owners.
-
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-
-mysql> create database Address_BookS_Service;
-Query OK, 1 row affected (0.17 sec)
-
-mysql> show databases;
-+-----------------------+
-| Database              |
-+-----------------------+
-| address_books_service |
-| darshan               |
-| information_schema    |
-| mysql                 |
-| payroll_service       |
-| performance_schema    |
-| sys                   |
-+-----------------------+
-7 rows in set (0.12 sec)
-
-mysql> use address_books_service;
-Database changed
+mysql> desc Address_Book;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| First_Name   | varchar(30) | NO   |     | NULL    |       |
+| Last_Name    | varchar(30) | NO   |     | NULL    |       |
+| Address      | varchar(30) | NO   |     | NULL    |       |
+| City         | varchar(30) | NO   |     | NULL    |       |
+| zip          | int         | NO   |     | NULL    |       |
+| Phone_number | int         | NO   |     | NULL    |       |
+| Email        | varchar(30) | NO   |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+7 rows in set (0.04 sec)
