@@ -8,14 +8,16 @@ mysql> select * from address_book;
 | Raj        | Patil      | AT- Abhiraj Society | Mumbai | 678543 |    727214323 | raj@gmail.com   |
 | Fazal      | Khan       | AT- Khan Society    | Panvel | 678433 |    743421423 | fazal@gmail.com |
 +------------+------------+---------------------+--------+--------+--------------+-----------------+
-5 rows in set (0.16 sec)
+5 rows in set (0.13 sec)
 
-mysql> select city,count(city) AS COUNT_CITY from address_book group by city;
-+--------+------------+
-| city   | COUNT_CITY |
-+--------+------------+
-| Mumbai |          2 |
-| panvel |          2 |
-| UK     |          1 |
-+--------+------------+
-3 rows in set (0.01 sec)
+mysql> select * from address_book order by city;
++------------+------------+---------------------+--------+--------+--------------+-----------------+
+| First_Name | Last_Name  | Address             | City   | zip    | Phone_number | Email           |
++------------+------------+---------------------+--------+--------+--------------+-----------------+
+| Darshan    | Mhatre     | AT-Lokmanya Society | Mumbai | 402312 |      7276985 | darsh@gmil.com  |
+| Raj        | Patil      | AT- Abhiraj Society | Mumbai | 678543 |    727214323 | raj@gmail.com   |
+| Yukta      | Bapardekar | AT-Sagar Society    | panvel | 401232 |     72775785 | yukta@gmil.com  |
+| Fazal      | Khan       | AT- Khan Society    | Panvel | 678433 |    743421423 | fazal@gmail.com |
+| joy        | Funny      | AT-cherry Society   | UK     | 501232 |    726564785 | joy@gmil.com    |
++------------+------------+---------------------+--------+--------+--------------+-----------------+
+5 rows in set (0.03 sec)
