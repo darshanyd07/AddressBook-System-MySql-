@@ -1,10 +1,8 @@
-mysql> show tables;
-+---------------------------------+
-| Tables_in_address_books_service |
-+---------------------------------+
-| address_book                    |
-+---------------------------------+
-1 row in set (0.04 sec)
+mysql> insert into address_book values('Karan','Patil','AT-Ganesh Nagar','Goa',786567,72686778,'karan@gmail.com','friend');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into address_book values('Anand','Mhatre','AT-yadhnesh Nagar','anand',786567,72686768,'joker@gmail.com','family');
+Query OK, 1 row affected (0.01 sec)
 
 mysql> select * from address_book;
 +------------+------------+---------------------+--------+--------+--------------+-----------------+------------+
@@ -15,13 +13,7 @@ mysql> select * from address_book;
 | joy        | Funny      | AT-cherry Society   | UK     | 501232 |    726564785 | joy@gmil.com    | friend     |
 | Raj        | Patil      | AT- Abhiraj Society | Mumbai | 678543 |    727214323 | raj@gmail.com   | friend     |
 | Fazal      | Khan       | AT- Khan Society    | Panvel | 678433 |    743421423 | fazal@gmail.com | Profession |
+| Karan      | Patil      | AT-Ganesh Nagar     | Goa    | 786567 |     72686778 | karan@gmail.com | friend     |
+| Anand      | Mhatre     | AT-yadhnesh Nagar   | anand  | 786567 |     72686768 | joker@gmail.com | family     |
 +------------+------------+---------------------+--------+--------+--------------+-----------------+------------+
-5 rows in set (0.48 sec)
-
-mysql> select count(Phone_number) AS TOTAL_PHONE_COUNT from address_book;
-+-------------------+
-| TOTAL_PHONE_COUNT |
-+-------------------+
-|                 5 |
-+-------------------+
-1 row in set (0.02 sec)
+7 rows in set (0.00 sec)
