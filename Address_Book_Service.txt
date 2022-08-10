@@ -5,19 +5,33 @@ mysql> select * from address_book;
 | Darshan    | Mhatre     | AT-Lokmanya Society | Mumbai | 402312 |      7276985 | darsh@gmil.com |
 | Yukta      | Bapardekar | AT-Sagar Society    | panvel | 401232 |     72775785 | yukta@gmil.com |
 | joy        | Funny      | AT-cherry Society   | UK     | 501232 |    726564785 | joy@gmil.com   |
-| Han        | Cunny      | AT-Apple Society    | USA    | 671232 |    544656478 | han@gmil.com   |
-+------------+------------+---------------------+--------+--------+--------------+----------------+
-4 rows in set (0.00 sec)
-
-mysql> delete from address_book where First_Name = 'han';
-Query OK, 1 row affected (0.19 sec)
-
-mysql> select * from address_book;
-+------------+------------+---------------------+--------+--------+--------------+----------------+
-| First_Name | Last_Name  | Address             | City   | zip    | Phone_number | Email          |
-+------------+------------+---------------------+--------+--------+--------------+----------------+
-| Darshan    | Mhatre     | AT-Lokmanya Society | Mumbai | 402312 |      7276985 | darsh@gmil.com |
-| Yukta      | Bapardekar | AT-Sagar Society    | panvel | 401232 |     72775785 | yukta@gmil.com |
-| joy        | Funny      | AT-cherry Society   | UK     | 501232 |    726564785 | joy@gmil.com   |
 +------------+------------+---------------------+--------+--------+--------------+----------------+
 3 rows in set (0.00 sec)
+
+mysql> insert into Address_Book values ('Raj','Patil','AT- Abhiraj Society','Mumbai',678543,727214323,'raj@gmail.com');
+Query OK, 1 row affected (0.05 sec)
+
+
+mysql> insert into Address_Book values ('Fazal','Khan','AT- Khan Society','Panvel',678433,743421423,'fazal@gmail.com');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> select * from address_book;
++------------+------------+---------------------+--------+--------+--------------+-----------------+
+| First_Name | Last_Name  | Address             | City   | zip    | Phone_number | Email           |
++------------+------------+---------------------+--------+--------+--------------+-----------------+
+| Darshan    | Mhatre     | AT-Lokmanya Society | Mumbai | 402312 |      7276985 | darsh@gmil.com  |
+| Yukta      | Bapardekar | AT-Sagar Society    | panvel | 401232 |     72775785 | yukta@gmil.com  |
+| joy        | Funny      | AT-cherry Society   | UK     | 501232 |    726564785 | joy@gmil.com    |
+| Raj        | Patil      | AT- Abhiraj Society | Mumbai | 678543 |    727214323 | raj@gmail.com   |
+| Fazal      | Khan       | AT- Khan Society    | Panvel | 678433 |    743421423 | fazal@gmail.com |
++------------+------------+---------------------+--------+--------+--------------+-----------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from address_book where city = 'panvel' or Email = 'yukta@gmail.com' ;
++------------+------------+------------------+--------+--------+--------------+-----------------+
+| First_Name | Last_Name  | Address          | City   | zip    | Phone_number | Email           |
++------------+------------+------------------+--------+--------+--------------+-----------------+
+| Yukta      | Bapardekar | AT-Sagar Society | panvel | 401232 |     72775785 | yukta@gmil.com  |
+| Fazal      | Khan       | AT- Khan Society | Panvel | 678433 |    743421423 | fazal@gmail.com |
++------------+------------+------------------+--------+--------+--------------+-----------------+
+2 rows in set (0.00 sec)
