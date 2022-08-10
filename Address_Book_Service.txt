@@ -1,19 +1,151 @@
-mysql> insert into address_book values('Karan','Patil','AT-Ganesh Nagar','Goa',786567,72686778,'karan@gmail.com','friend');
-Query OK, 1 row affected (0.07 sec)
+mysql> create table AddressBook(
+    -> firstname varchar(50) not null,
+    -> address varchar(100) not null,
+    -> city varchar(50) not null,
+    -> state varchar(50) not null,
+    -> zip int not null,
+    -> phonenumber double not null,
+    -> email varchar(100) not null);
+Query OK, 0 rows affected (0.12 sec)
 
-mysql> insert into address_book values('Anand','Mhatre','AT-yadhnesh Nagar','anand',786567,72686768,'joker@gmail.com','family');
+mysql> desc AddressBook;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| firstname   | varchar(50)  | NO   |     | NULL    |       |
+| address     | varchar(100) | NO   |     | NULL    |       |
+| city        | varchar(50)  | NO   |     | NULL    |       |
+| state       | varchar(50)  | NO   |     | NULL    |       |
+| zip         | int          | NO   |     | NULL    |       |
+| phonenumber | double       | NO   |     | NULL    |       |
+| email       | varchar(100) | NO   |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+7 rows in set (0.01 sec)
+
+mysql> insert into addressBook (firstName,address, city, state, zip, phoneNumber, email) VALUES
+    -> ('Neha','Burli', 'sangli', 'Maharashtra', 524004, 9843261782, 'neha12@gmail.com'),
+    -> ('Anushka','Mumbai', 'Mumbai', 'Maharashtra', 5243232, 98432344546, 'nushki2@gmail.com'),
+    -> ('Shruti','Katraj', 'Pune', 'Maharashtra', 52213, 984233456567, 'shruti04@gmail.com');
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select * from addressBook;
++-----------+---------+--------+-------------+---------+--------------+--------------------+
+| firstname | address | city   | state       | zip     | phonenumber  | email              |
++-----------+---------+--------+-------------+---------+--------------+--------------------+
+| Neha      | Burli   | sangli | Maharashtra |  524004 |   9843261782 | neha12@gmail.com   |
+| Anushka   | Mumbai  | Mumbai | Maharashtra | 5243232 |  98432344546 | nushki2@gmail.com  |
+| Shruti    | Katraj  | Pune   | Maharashtra |   52213 | 984233456567 | shruti04@gmail.com |
++-----------+---------+--------+-------------+---------+--------------+--------------------+
+3 rows in set (0.01 sec)
+
+
+mysql> update addressBook set city = 'Kolhapur' where firstName = 'Shruti';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from addressBook;
++-----------+---------+----------+-------------+---------+--------------+--------------------+
+| firstname | address | city     | state       | zip     | phonenumber  | email              |
++-----------+---------+----------+-------------+---------+--------------+--------------------+
+| Neha      | Burli   | sangli   | Maharashtra |  524004 |   9843261782 | neha12@gmail.com   |
+| Anushka   | Mumbai  | Mumbai   | Maharashtra | 5243232 |  98432344546 | nushki2@gmail.com  |
+| Shruti    | Katraj  | Kolhapur | Maharashtra |   52213 | 984233456567 | shruti04@gmail.com |
++-----------+---------+----------+-------------+---------+--------------+--------------------+
+3 rows in set (0.01 sec)
+
+mysql> delete from addressBook  where firstName = 'Shruti';
 Query OK, 1 row affected (0.01 sec)
 
-mysql> select * from address_book;
-+------------+------------+---------------------+--------+--------+--------------+-----------------+------------+
-| First_Name | Last_Name  | Address             | City   | zip    | Phone_number | Email           | type       |
-+------------+------------+---------------------+--------+--------+--------------+-----------------+------------+
-| Darshan    | Mhatre     | AT-Lokmanya Society | Mumbai | 402312 |      7276985 | darsh@gmil.com  | family     |
-| Yukta      | Bapardekar | AT-Sagar Society    | panvel | 401232 |     72775785 | yukta@gmil.com  | family     |
-| joy        | Funny      | AT-cherry Society   | UK     | 501232 |    726564785 | joy@gmil.com    | friend     |
-| Raj        | Patil      | AT- Abhiraj Society | Mumbai | 678543 |    727214323 | raj@gmail.com   | friend     |
-| Fazal      | Khan       | AT- Khan Society    | Panvel | 678433 |    743421423 | fazal@gmail.com | Profession |
-| Karan      | Patil      | AT-Ganesh Nagar     | Goa    | 786567 |     72686778 | karan@gmail.com | friend     |
-| Anand      | Mhatre     | AT-yadhnesh Nagar   | anand  | 786567 |     72686768 | joker@gmail.com | family     |
-+------------+------------+---------------------+--------+--------+--------------+-----------------+------------+
-7 rows in set (0.00 sec)
+mysql>  select * from addressBook;
++-----------+---------+--------+-------------+---------+-------------+-------------------+
+| firstname | address | city   | state       | zip     | phonenumber | email             |
++-----------+---------+--------+-------------+---------+-------------+-------------------+
+| Neha      | Burli   | sangli | Maharashtra |  524004 |  9843261782 | neha12@gmail.com  |
+| Anushka   | Mumbai  | Mumbai | Maharashtra | 5243232 | 98432344546 | nushki2@gmail.com |
++-----------+---------+--------+-------------+---------+-------------+-------------------+
+2 rows in set (0.01 sec)
+
+mysql> insert into addressBook (firstName,address, city, state, zip, phoneNumber, email) VALUES
+    -> ('Shruti','Katraj', 'Pune', 'Maharashtra', 52213, 984233456567, 'shruti04@gmail.com');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from addressBook;
++-----------+---------+--------+-------------+---------+--------------+--------------------+
+| firstname | address | city   | state       | zip     | phonenumber  | email              |
++-----------+---------+--------+-------------+---------+--------------+--------------------+
+| Neha      | Burli   | sangli | Maharashtra |  524004 |   9843261782 | neha12@gmail.com   |
+| Anushka   | Mumbai  | Mumbai | Maharashtra | 5243232 |  98432344546 | nushki2@gmail.com  |
+| Shruti    | Katraj  | Pune   | Maharashtra |   52213 | 984233456567 | shruti04@gmail.com |
++-----------+---------+--------+-------------+---------+--------------+--------------------+
+3 rows in set (0.01 sec)
+
+mysql> select * from addressBook where city = 'sangli';
++-----------+---------+--------+-------------+--------+-------------+------------------+
+| firstname | address | city   | state       | zip    | phonenumber | email            |
++-----------+---------+--------+-------------+--------+-------------+------------------+
+| Neha      | Burli   | sangli | Maharashtra | 524004 |  9843261782 | neha12@gmail.com |
++-----------+---------+--------+-------------+--------+-------------+------------------+
+1 row in set (0.00 sec)
+
+
+mysql> select city, Count(firstName) from addressBook group by city;
++--------+------------------+
+| city   | Count(firstName) |
++--------+------------------+
+| sangli |                1 |
+| Mumbai |                1 |
+| Pune   |                1 |
++--------+------------------+
+3 rows in set (0.00 sec)
+
+
+mysql>  select * from addressBook where city = 'Pune' ORDER BY firstName ASC;
++-----------+---------+------+-------------+-------+--------------+--------------------+
+| firstname | address | city | state       | zip   | phonenumber  | email              |
++-----------+---------+------+-------------+-------+--------------+--------------------+
+| Shruti    | Katraj  | Pune | Maharashtra | 52213 | 984233456567 | shruti04@gmail.com |
++-----------+---------+------+-------------+-------+--------------+--------------------+
+1 row in set (0.01 sec)
+
+mysql> alter table Addressbook add bookname varchar(50) not null,add contacttype varchar(50) not null;
+Query OK, 0 rows affected (0.11 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc Addressbook;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| firstname   | varchar(50)  | NO   |     | NULL    |       |
+| address     | varchar(100) | NO   |     | NULL    |       |
+| city        | varchar(50)  | NO   |     | NULL    |       |
+| state       | varchar(50)  | NO   |     | NULL    |       |
+| zip         | int          | NO   |     | NULL    |       |
+| phonenumber | double       | NO   |     | NULL    |       |
+| email       | varchar(100) | NO   |     | NULL    |       |
+| bookname    | varchar(50)  | NO   |     | NULL    |       |
+| contacttype | varchar(50)  | NO   |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+9 rows in set (0.02 sec)
+
+mysql> update Addressbook set bookname ='helloworld',contacttype='friend';
+Query OK, 3 rows affected (0.01 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+mysql> select * from Addressbook;
++-----------+---------+--------+-------------+---------+--------------+--------------------+------------+-------------+
+| firstname | address | city   | state       | zip     | phonenumber  | email              | bookname   | contacttype |
++-----------+---------+--------+-------------+---------+--------------+--------------------+------------+-------------+
+| Neha      | Burli   | sangli | Maharashtra |  524004 |   9843261782 | neha12@gmail.com   | helloworld | friend      |
+| Anushka   | Mumbai  | Mumbai | Maharashtra | 5243232 |  98432344546 | nushki2@gmail.com  | helloworld | friend      |
+| Shruti    | Katraj  | Pune   | Maharashtra |   52213 | 984233456567 | shruti04@gmail.com | helloworld | friend      |
++-----------+---------+--------+-------------+---------+--------------+--------------------+------------+-------------+
+3 rows in set (0.00 sec)
+
+mysql> select count(firstname) from Addressbook where contacttype='friend';
++------------------+
+| count(firstname) |
++------------------+
+|                3 |
++------------------+
+1 row in set (0.00 sec)
