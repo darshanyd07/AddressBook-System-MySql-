@@ -58,5 +58,3 @@ mysql> select * from address_book group by type;
 
 mysql> select * from address_book group by type;
 
-Ability to identify each
-Address
