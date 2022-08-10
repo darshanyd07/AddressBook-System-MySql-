@@ -1,19 +1,29 @@
+mysql> show databases;
++-----------------------+
+| Database              |
++-----------------------+
+| address_books_service |
+| darshan               |
+| information_schema    |
+| mysql                 |
+| payroll_service       |
+| performance_schema    |
+| sys                   |
++-----------------------+
+7 rows in set (0.03 sec)
 
-mysql> insert into Address_Book Values('Darshan','Mhatre','AT-Lokmanya Society','Alibaug',401232,7276985,'darsh@gmil.com');
-Query OK, 1 row affected (0.03 sec)
+mysql> use address_books_service;
+Database changed
 
-mysql> insert into Address_Book Values('Yukta','Bapardekar','AT-Sagar Society','panvel',401232,72775785,'yukta@gmil.com');
-Query OK, 1 row affected (0.01 sec)
+mysql> show tables;
++---------------------------------+
+| Tables_in_address_books_service |
++---------------------------------+
+| address_book                    |
++---------------------------------+
+1 row in set (0.05 sec)
 
-mysql> insert into Address_Book Values('joy','Funny','AT-cherry Society','UK',501232,726564785,'joy@gmil.com');
-Query OK, 1 row affected (0.01 sec)
-
-mysql> insert into Address_Book Values('Han','Cunny','AT-Apple Society','USA',671232,5446564785,'han@gmil.com');
-ERROR 1264 (22003): Out of range value for column 'Phone_number' at row 1
-mysql> insert into Address_Book Values('Han','Cunny','AT-Apple Society','USA',671232,544656478,'han@gmil.com');
-Query OK, 1 row affected (0.01 sec)
-
-mysql> select * from Address_Book;
+mysql> select * from address_book;
 +------------+------------+---------------------+---------+--------+--------------+----------------+
 | First_Name | Last_Name  | Address             | City    | zip    | Phone_number | Email          |
 +------------+------------+---------------------+---------+--------+--------------+----------------+
@@ -22,4 +32,20 @@ mysql> select * from Address_Book;
 | joy        | Funny      | AT-cherry Society   | UK      | 501232 |    726564785 | joy@gmil.com   |
 | Han        | Cunny      | AT-Apple Society    | USA     | 671232 |    544656478 | han@gmil.com   |
 +------------+------------+---------------------+---------+--------+--------------+----------------+
+4 rows in set (0.01 sec)
+
+
+mysql> update address_book set city = 'Mumbai',zip = 402312 where First_Name = 'Darshan';
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from address_book;
++------------+------------+---------------------+--------+--------+--------------+----------------+
+| First_Name | Last_Name  | Address             | City   | zip    | Phone_number | Email          |
++------------+------------+---------------------+--------+--------+--------------+----------------+
+| Darshan    | Mhatre     | AT-Lokmanya Society | Mumbai | 402312 |      7276985 | darsh@gmil.com |
+| Yukta      | Bapardekar | AT-Sagar Society    | panvel | 401232 |     72775785 | yukta@gmil.com |
+| joy        | Funny      | AT-cherry Society   | UK     | 501232 |    726564785 | joy@gmil.com   |
+| Han        | Cunny      | AT-Apple Society    | USA    | 671232 |    544656478 | han@gmil.com   |
++------------+------------+---------------------+--------+--------+--------------+----------------+
 4 rows in set (0.00 sec)
