@@ -1,23 +1,62 @@
-mysql> select * from address_book;
-+------------+------------+---------------------+--------+--------+--------------+-----------------+
-| First_Name | Last_Name  | Address             | City   | zip    | Phone_number | Email           |
-+------------+------------+---------------------+--------+--------+--------------+-----------------+
-| Darshan    | Mhatre     | AT-Lokmanya Society | Mumbai | 402312 |      7276985 | darsh@gmil.com  |
-| Yukta      | Bapardekar | AT-Sagar Society    | panvel | 401232 |     72775785 | yukta@gmil.com  |
-| joy        | Funny      | AT-cherry Society   | UK     | 501232 |    726564785 | joy@gmil.com    |
-| Raj        | Patil      | AT- Abhiraj Society | Mumbai | 678543 |    727214323 | raj@gmail.com   |
-| Fazal      | Khan       | AT- Khan Society    | Panvel | 678433 |    743421423 | fazal@gmail.com |
-+------------+------------+---------------------+--------+--------+--------------+-----------------+
-5 rows in set (0.13 sec)
+mysql> alter table address_book add type varchar(30);
+Query OK, 0 rows affected (0.53 sec)
+Records: 0  Duplicates: 0  Warnings: 0
 
-mysql> select * from address_book order by city;
-+------------+------------+---------------------+--------+--------+--------------+-----------------+
-| First_Name | Last_Name  | Address             | City   | zip    | Phone_number | Email           |
-+------------+------------+---------------------+--------+--------+--------------+-----------------+
-| Darshan    | Mhatre     | AT-Lokmanya Society | Mumbai | 402312 |      7276985 | darsh@gmil.com  |
-| Raj        | Patil      | AT- Abhiraj Society | Mumbai | 678543 |    727214323 | raj@gmail.com   |
-| Yukta      | Bapardekar | AT-Sagar Society    | panvel | 401232 |     72775785 | yukta@gmil.com  |
-| Fazal      | Khan       | AT- Khan Society    | Panvel | 678433 |    743421423 | fazal@gmail.com |
-| joy        | Funny      | AT-cherry Society   | UK     | 501232 |    726564785 | joy@gmil.com    |
-+------------+------------+---------------------+--------+--------+--------------+-----------------+
-5 rows in set (0.03 sec)
+mysql> select * from address_book;
++------------+------------+---------------------+--------+--------+--------------+-----------------+------+
+| First_Name | Last_Name  | Address             | City   | zip    | Phone_number | Email           | type |
++------------+------------+---------------------+--------+--------+--------------+-----------------+------+
+| Darshan    | Mhatre     | AT-Lokmanya Society | Mumbai | 402312 |      7276985 | darsh@gmil.com  | NULL |
+| Yukta      | Bapardekar | AT-Sagar Society    | panvel | 401232 |     72775785 | yukta@gmil.com  | NULL |
+| joy        | Funny      | AT-cherry Society   | UK     | 501232 |    726564785 | joy@gmil.com    | NULL |
+| Raj        | Patil      | AT- Abhiraj Society | Mumbai | 678543 |    727214323 | raj@gmail.com   | NULL |
+| Fazal      | Khan       | AT- Khan Society    | Panvel | 678433 |    743421423 | fazal@gmail.com | NULL |
++------------+------------+---------------------+--------+--------+--------------+-----------------+------+
+5 rows in set (0.01 sec)
+
+mysql> update address_book set type = 'family'  where First_Name = 'Darshan';
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update address_book set type = 'family'  where First_Name = 'Yukta';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update address_book set type = 'friend'  where First_Name = 'joy';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update address_book set type = 'friend'  where First_Name = 'Raj';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update address_book set type = 'Profession'  where First_Name = 'Fazal';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from address_book;
++------------+------------+---------------------+--------+--------+--------------+-----------------+------------+
+| First_Name | Last_Name  | Address             | City   | zip    | Phone_number | Email           | type       |
++------------+------------+---------------------+--------+--------+--------------+-----------------+------------+
+| Darshan    | Mhatre     | AT-Lokmanya Society | Mumbai | 402312 |      7276985 | darsh@gmil.com  | family     |
+| Yukta      | Bapardekar | AT-Sagar Society    | panvel | 401232 |     72775785 | yukta@gmil.com  | family     |
+| joy        | Funny      | AT-cherry Society   | UK     | 501232 |    726564785 | joy@gmil.com    | friend     |
+| Raj        | Patil      | AT- Abhiraj Society | Mumbai | 678543 |    727214323 | raj@gmail.com   | friend     |
+| Fazal      | Khan       | AT- Khan Society    | Panvel | 678433 |    743421423 | fazal@gmail.com | Profession |
++------------+------------+---------------------+--------+--------+--------------+-----------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from address_book group by type;
++------------+-----------+---------------------+--------+--------+--------------+-----------------+------------+
+| First_Name | Last_Name | Address             | City   | zip    | Phone_number | Email           | type       |
++------------+-----------+---------------------+--------+--------+--------------+-----------------+------------+
+| Darshan    | Mhatre    | AT-Lokmanya Society | Mumbai | 402312 |      7276985 | darsh@gmil.com  | family     |
+| joy        | Funny     | AT-cherry Society   | UK     | 501232 |    726564785 | joy@gmil.com    | friend     |
+| Fazal      | Khan      | AT- Khan Society    | Panvel | 678433 |    743421423 | fazal@gmail.com | Profession |
++------------+-----------+---------------------+--------+--------+--------------+-----------------+------------+
+3 rows in set (0.01 sec)
+
+mysql> select * from address_book group by type;
+
+Ability to identify each
+Address
